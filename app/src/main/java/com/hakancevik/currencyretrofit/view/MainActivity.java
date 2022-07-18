@@ -1,12 +1,14 @@
 package com.hakancevik.currencyretrofit.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
 import android.view.View;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.hakancevik.currencyretrofit.adapter.CryptoAdapter;
 import com.hakancevik.currencyretrofit.databinding.ActivityMainBinding;
 import com.hakancevik.currencyretrofit.model.CryptoModel;
 import com.hakancevik.currencyretrofit.service.CryptoAPI;
@@ -23,10 +25,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
    ArrayList<CryptoModel>  cryptoModels;
-   private String BASE_URL = "https://api.nomics.com/v1/";
+   private final String BASE_URL = "https://api.nomics.com/v1/";
 
    Retrofit retrofit;
    Gson gson;
+
+   CryptoAdapter cryptoAdapter;
 
     private ActivityMainBinding binding;
 
@@ -53,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         loadData();
 
 
+
+
     }
 
     private void loadData(){
@@ -67,13 +73,18 @@ public class MainActivity extends AppCompatActivity {
                     List<CryptoModel> responseList = response.body();
                     cryptoModels = new ArrayList<>(responseList);
 
+                    binding.recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                    cryptoAdapter = new CryptoAdapter(cryptoModels);
+                    binding.recyclerView.setAdapter(cryptoAdapter);
+
+                    /*
                     for (CryptoModel cryptoModel : cryptoModels){
 
                         System.out.println(cryptoModel.currency);
                         System.out.println(cryptoModel.price);
-
-
-                    }
+                        System.out.println(cryptoModel.logo_url);
+                        System.out.println(cryptoModel.name);
+                    } */
 
 
 
