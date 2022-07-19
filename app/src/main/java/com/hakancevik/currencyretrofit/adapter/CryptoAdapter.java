@@ -31,7 +31,7 @@ public class CryptoAdapter extends RecyclerView.Adapter<CryptoAdapter.CryptoHold
     public void onBindViewHolder(@NonNull CryptoHolder holder, int position) {
         holder.binding.recyclerViewNameText.setText(cryptoModelArrayList.get(position).name);
         holder.binding.recyclerViewCurrencyText.setText(cryptoModelArrayList.get(position).currency);
-        holder.binding.recyclerViewPriceText.setText(cryptoModelArrayList.get(position).price);
+        holder.binding.recyclerViewPriceText.setText("$" + cryptoModelArrayList.get(position).price);
         Picasso.get().load(cryptoModelArrayList.get(position).logo_url).into(holder.binding.recyclerViewImage);
     }
 
@@ -40,7 +40,7 @@ public class CryptoAdapter extends RecyclerView.Adapter<CryptoAdapter.CryptoHold
         return cryptoModelArrayList.size();
     }
 
-    public class CryptoHolder extends  RecyclerView.ViewHolder{
+    public class CryptoHolder extends RecyclerView.ViewHolder {
 
         private RecyclerRowBinding binding;
 
@@ -49,8 +49,6 @@ public class CryptoAdapter extends RecyclerView.Adapter<CryptoAdapter.CryptoHold
             this.binding = binding;
 
         }
-
-
 
 
     }

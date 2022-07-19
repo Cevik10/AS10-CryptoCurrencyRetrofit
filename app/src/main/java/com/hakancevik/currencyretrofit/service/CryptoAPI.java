@@ -4,6 +4,7 @@ import com.hakancevik.currencyretrofit.model.CryptoModel;
 
 import java.util.List;
 
+import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
@@ -15,10 +16,8 @@ public interface CryptoAPI {
     // GET --> currencies/ticker?key=d1587f1fca87cced047e2de0fd02fe37978520e1
 
     @GET("currencies/ticker?key=d1587f1fca87cced047e2de0fd02fe37978520e1")
-    Call<List<CryptoModel>> getData();
-
-
-
+    Observable<List<CryptoModel>> getData();
+    //Call<List<CryptoModel>> getData();
 
 
 }

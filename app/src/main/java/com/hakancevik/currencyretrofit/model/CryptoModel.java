@@ -17,10 +17,4 @@ public class CryptoModel {
     public String price;
 
 
-
-
-
-
-
-
 }
