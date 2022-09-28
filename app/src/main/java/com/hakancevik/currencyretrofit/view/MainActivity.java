@@ -97,8 +97,8 @@ public class MainActivity extends AppCompatActivity {
 //
 //                        System.out.println(cryptoModel.currency);
 //                        System.out.println(cryptoModel.price);
-//                        System.out.println(cryptoModel.logo_url);
 //                        System.out.println(cryptoModel.name);
+//                        System.out.println(cryptoModel.logo_url);
 //                    }
 
 
