@@ -29,7 +29,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<CryptoModel> cryptoModels;
-    private final String BASE_URL = "https://api.nomics.com/v1/";
+
+    private final String BASE_URL = "https://raw.githubusercontent.com/Cevik10/";
+    //private final String BASE_URL = "https://api.nomics.com/v1/";
 
     Retrofit retrofit;
     Gson gson;
